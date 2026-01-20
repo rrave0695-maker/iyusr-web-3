@@ -1,5 +1,6 @@
 import { SplineBackground } from "@/components/spline-background"
 import { AudioPlayer } from "@/components/audio-player"
+import { VideoShowcase } from "@/components/video-showcase"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Zap, Shield, Menu } from "lucide-react"
 
@@ -116,6 +117,9 @@ export default function Home() {
           </main>
         </div>
       </section>
+      
+      {/* Video Showcase Section */}
+      <VideoShowcase />
       
       {/* Bottom section - outside Spline background */}
       <section className="relative z-20 bg-black px-4 sm:px-6 lg:px-12 py-16 sm:py-20 lg:py-24">

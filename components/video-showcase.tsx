@@ -1,12 +1,12 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { CldVideoPlayer } from 'next-cloudinary'
+import 'next-cloudinary/dist/cld-video-player.css'
 
 export function VideoShowcase() {
   const sectionRef = useRef<HTMLElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const isPlayingRef = useRef(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -14,24 +14,8 @@ export function VideoShowcase() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true)
-            // Play video when scrolled into view
-            if (videoRef.current && !isPlayingRef.current) {
-              isPlayingRef.current = true
-              videoRef.current.play()
-                .catch((error) => {
-                  // Ignore the "interrupted by pause" error - it's harmless
-                  if (error.name !== 'NotAllowedError' && !error.message?.includes('pause')) {
-                    // Error playing video
-                  }
-                  isPlayingRef.current = false
-                })
-            }
           } else {
-            // Pause when not visible to save resources
-            if (videoRef.current && isPlayingRef.current) {
-              isPlayingRef.current = false
-              videoRef.current.pause()
-            }
+            setIsVisible(false)
           }
         })
       },
@@ -52,28 +36,21 @@ export function VideoShowcase() {
       ref={sectionRef}
       className="relative z-20 h-screen w-full overflow-hidden"
     >
-      {/* Fullscreen video background */}
-      <video
-        ref={videoRef}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-10 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        onLoadedMetadata={() => {}}
-        onLoadedData={() => {}}
-        onCanPlay={() => {}}
-        onPlay={() => {}}
-        onPause={() => {}}
-        onError={() => {}}
-      >
-        <source 
-          src="/videos/showcase.mp4" 
-          type="video/mp4" 
+      {/* Cloudinary video background with auto-optimization */}
+      <div className={`absolute inset-0 transition-opacity duration-10 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}>
+        <CldVideoPlayer
+          src="showcase_bagpef"
+          width="1920"
+          height="1080"
+          controls={false}
+          autoplay="on-scroll"
+          muted
+          loop
+          className="absolute inset-0 w-full h-full [&_video]:object-cover [&_video]:w-full [&_video]:h-full"
         />
-      </video>
+      </div>
       
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />

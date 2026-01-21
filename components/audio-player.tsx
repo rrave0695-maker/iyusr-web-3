@@ -169,7 +169,7 @@ export function AudioPlayer({ variant = "fixed" }: { variant?: "fixed" | "inline
       <audio 
         ref={audioRef} 
         preload="auto"
-        src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3"
+        src="/audio.mp3"
       />
 
       {/* Button container */}

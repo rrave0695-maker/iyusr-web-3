@@ -6,6 +6,7 @@ export function VideoShowcase() {
   const sectionRef = useRef<HTMLElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const isPlayingRef = useRef(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -14,14 +15,21 @@ export function VideoShowcase() {
           if (entry.isIntersecting) {
             setIsVisible(true)
             // Play video when scrolled into view
-            if (videoRef.current) {
-              videoRef.current.play().catch(() => {
-                // Autoplay prevented, that's okay
-              })
+            if (videoRef.current && !isPlayingRef.current) {
+              isPlayingRef.current = true
+              videoRef.current.play()
+                .catch((error) => {
+                  // Ignore the "interrupted by pause" error - it's harmless
+                  if (error.name !== 'NotAllowedError' && !error.message?.includes('pause')) {
+                    // Error playing video
+                  }
+                  isPlayingRef.current = false
+                })
             }
           } else {
             // Pause when not visible to save resources
-            if (videoRef.current) {
+            if (videoRef.current && isPlayingRef.current) {
+              isPlayingRef.current = false
               videoRef.current.pause()
             }
           }
@@ -34,7 +42,9 @@ export function VideoShowcase() {
       observer.observe(sectionRef.current)
     }
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   return (
@@ -45,13 +55,19 @@ export function VideoShowcase() {
       {/* Fullscreen video background */}
       <video
         ref={videoRef}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-10 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
         muted
         loop
         playsInline
         preload="metadata"
+        onLoadedMetadata={() => {}}
+        onLoadedData={() => {}}
+        onCanPlay={() => {}}
+        onPlay={() => {}}
+        onPause={() => {}}
+        onError={() => {}}
       >
         <source 
           src="/videos/showcase.mp4" 
@@ -67,6 +83,20 @@ export function VideoShowcase() {
       
       {/* Bottom gradient fade to next section */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+      
+      {/* Transition fade to next section */}
+      <div 
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "50px",
+          background: "linear-gradient(to bottom, transparent, #000000)",
+          pointerEvents: "none",
+          zIndex: 10,
+        }}
+      />
       
       {/* Content overlay */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-12">

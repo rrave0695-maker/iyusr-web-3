@@ -149,7 +149,7 @@ export function Services() {
               />
             </span>
             <span 
-              className={`transition-all duration-1000 ease-in-out ${
+              className={`transition-all duration-2000 ease-in-out ${
                 toggleActive 
                   ? "opacity-100 translate-x-0" 
                   : "opacity-0 -translate-x-4"

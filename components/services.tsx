@@ -14,34 +14,34 @@ import { ServiceCard } from "./service-card"
 
 const services = [
   {
-    icon: Calculator,
-    title: "Financial Planning",
-    description: "Personalized strategies to help you manage income, set clear goals, and secure long-term financial success.",
+    icon: "/icons/graphic-chart.png",
+    title: "Conseil en Transformation Digitale.",
+    description: "Modernisation des SI et structuration de programmes.",
   },
   {
-    icon: TrendingUp,
-    title: "Investment Advisory",
-    description: "Smart investment recommendations tailored to your risk profile and future ambitions, ensuring optimal growth.",
+    icon: "/icons/rate.png",
+    title: "Solutions de Financement.",
+    description: "Plateformes sécurisées pour parcours clients 100% digital.",
   },
   {
-    icon: LineChart,
-    title: "Finance Consulting",
-    description: "Expert insights to help optimize your company's budgeting, forecasting, and growth strategy.",
+    icon: "/icons/saving.png",
+    title: "Data & Intelligence Artificielle.",
+    description: "Analyse avancée, reporting et aide à la décision.",
   },
   {
-    icon: FileText,
-    title: "Tax Strategy",
-    description: "Maximize returns with efficient, fully compliant tax planning tailored to individuals and businesses.",
+    icon: "/icons/bill.png",
+    title: "ERP & Systèmes de Gestion.",
+    description: "Implémentation Odoo pour une gestion centralisée (Finance, CRM, RH).",
   },
   {
-    icon: BarChart3,
-    title: "Asset Management",
-    description: "Comprehensive asset strategies that preserve wealth and grow it over time with minimized risk.",
+    icon: "/icons/gold-bars.png",
+    title: "Développement Digital.",
+    description: "Conception de plateformes web et mobiles robustes et sécurisées.",
   },
   {
-    icon: CreditCard,
-    title: "Debt Management",
-    description: "Supportive plans for debt reduction, consolidation, and financial recovery built around your needs.",
+    icon: "/icons/credit-card.png",
+    title: "Conformité Réglementaire.",
+    description: "Processus automatisés et conformité intégrée aux standards.",
   },
 ]
 
@@ -101,29 +101,15 @@ export function Services() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-20 py-20 px-4 sm:px-6 lg:px-12 overflow-hidden bg-cover bg-center"
-      style={{
-        backgroundImage: "url(/bg_gradiante.png)",
-      }}
+      className="relative py-20 px-4 sm:px-6 lg:px-12 overflow-hidden"
     >
       {/* Top gradient fade from previous section */}
-      <div 
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "70px",
-          background: "linear-gradient(to bottom, #000000, transparent)",
-          pointerEvents: "none",
-          zIndex: 1,
-        }}
-      />
+     
 
       {/* Our Services Badge */}
       <div
         ref={headerRef}
-        className={`mb-4 ${headerVisible ? "animate-fade-in-up" : "animate-hidden"}`}
+        className={`mb-4 max-w-6xl mx-auto ${headerVisible ? "animate-fade-in-up" : "animate-hidden"}`}
       >
         <span className="inline-block px-4 py-1.5 text-white/70 text-sm border border-white/20 rounded-full">
           Our Services
@@ -131,16 +117,16 @@ export function Services() {
       </div>
 
       {/* Title with Toggle */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-12 gap-6">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-12 gap-6 max-w-6xl mx-auto">
         <h2
           className={`text-white text-4xl lg:text-5xl font-bold leading-tight ${
             headerVisible ? "animate-fade-in-up animate-delay-100" : "animate-hidden"
           }`}
         >
-          Financial Solutions
+          Nos Domaines
           <br />
           <span className="flex items-center gap-3">
-            Designed{" "}
+            d’Expertise{" "}
             <span className="inline-flex items-center w-16 h-8 bg-[#1a3a40] rounded-full px-1 relative overflow-hidden">
               <span 
                 className={`w-6 h-6 rounded-full bg-[#e85d04] transition-all duration-1000 ease-in-out ${
@@ -155,14 +141,14 @@ export function Services() {
                   : "opacity-0 -translate-x-4"
               }`}
             >
-              for Impact
+              Métiers
             </span>
           </span>
         </h2>
 
         {/* View All Services Button */}
         <button
-          className={`flex items-center gap-2 px-5 py-2.5 text-white text-sm font-medium border border-white/30 rounded-full hover:bg-white/10 transition-colors ${
+          className={`flex items-center gap-2 px-5 py-2.5 text-white text-sm font-medium border border-white/30 rounded-full hover:bg-white/10 transition-colors max-w-fit ${
             headerVisible ? "animate-fade-in-right animate-delay-200" : "animate-hidden"
           }`}
         >

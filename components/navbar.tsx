@@ -29,7 +29,7 @@ export function Navbar() {
           <a href="#" className="hidden sm:block text-sm text-gray-300 hover:text-white transition-colors">
             Login <span className="text-xs">↗</span>
           </a>
-          <Button className="hidden sm:inline-flex bg-[#D04A02] hover:bg-[#B84000] text-white font-medium px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm">
+          <Button className="hidden sm:inline-flex  hover:bg-[#B84000] text-white font-medium px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm">
             Contact Us
           </Button>
           {/* Mobile menu button */}

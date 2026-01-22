@@ -82,14 +82,11 @@ export function VideoShowcase() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-cyan-400 text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
-            See it in action
-          </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white text-balance">
-            Fluid, responsive, <span className="text-cyan-400">alive</span>
+            Innover, Optimiser, <span className="text-[#53B7B1]">Exceller.</span>
           </h2>
-          <p className="mt-4 sm:mt-6 text-gray-300 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
-            Watch how the interface responds to every interaction with buttery smooth animations
+          <p className="mt-4 sm:mt-6 text-white max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
+            Accompagnement dans la modernisation des SI et l'optimisation des processus métiers. 
           </p>
         </div>
       </div>

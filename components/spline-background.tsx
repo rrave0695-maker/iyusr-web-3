@@ -145,6 +145,7 @@ export function SplineBackground() {
       
       <div ref={containerRef} className="w-full h-full">
         {/* <Spline scene="https://prod.spline.design/IQoqKhKfkxWhiS0P/scene.splinecode" /> */}
+        {/* <Spline scene="https://prod.spline.design/IcqG3aag2PIsrfq8/scene.splinecode" /> */}
         <Spline scene="https://prod.spline.design/IcqG3aag2PIsrfq8/scene.splinecode" />
       </div>
       {/* Gradient fade at bottom */}

@@ -5,24 +5,18 @@ import { useEffect, useRef, useState } from "react"
 import { AboutCard } from "./about-card"
 
 const cards = [
-  {
-    icon: Shield,
-    title: "Innovative Solutions",
-    description: "Cutting-edge technology and design that pushes boundaries",
-    iconBg: "bg-cyan-500/20",
-  },
-  {
-    icon: Zap,
-    title: "High Performance",
-    description: "Optimized for speed and efficiency across all platforms",
-    iconBg: "bg-cyan-500/20",
-  },
-  {
-    icon: BarChart3,
-    title: "Scalable Architecture",
-    description: "Built to grow with your business needs seamlessly",
-    iconBg: "bg-cyan-500/20",
-  },
+    {
+        icon: "/icons/sheild.png",
+        title: "Compréhension forte des enjeux métiers et réglementaires.",
+    },
+    {
+        icon: "/icons/sign.png",
+        title: "Solutions pragmatiques, mesurables et durables.",
+    },
+    {
+        icon: "/icons/laptop.png",
+        title: "Exigence élevée en matière de qualité et de gouvernance.",
+    },
 ]
 
 export function About() {
@@ -53,24 +47,10 @@ export function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-20 py-20 px-4 sm:px-6 lg:px-12 overflow-hidden bg-cover bg-center"
-      style={{
-        backgroundImage: "url(/bg_gradiante.png)",
-      }}
+      className="relative py-20 px-4 sm:px-6 lg:px-12 overflow-hidden"
     >
       {/* Top gradient fade from previous section */}
-      <div 
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "70px",
-          background: "linear-gradient(to bottom, #000000, transparent)",
-          pointerEvents: "none",
-          zIndex: 1, 
-        }}
-      />
+
       
       {/* Title */}
       <div className={`pt-4 text-center mb-16 transition-all duration-1000  ${
@@ -79,8 +59,9 @@ export function About() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4">
           À propos de <span className="text-[#D04A02] hover:text-[#ff7b00] transition-all duration-300 cursor-pointer" style={{textShadow: "0 0 0 transparent"}} onMouseEnter={(e) => e.currentTarget.style.textShadow = "0 0 20px rgba(255, 157, 0, 0.8), 0 0 30px rgba(208, 74, 2, 0.6)"} onMouseLeave={(e) => e.currentTarget.style.textShadow = "0 0 0 transparent"}>i-Yusr.</span>
         </h2>
-        <p className="text-white max-w-5xl mx-auto text-sm sm:text-base hover:text-white transition-all duration-300 cursor-pointer" style={{textShadow: "0 0 0 transparent"}} onMouseEnter={(e) => e.currentTarget.style.textShadow = "0 0 15px rgba(34, 211, 238, 0.6), 0 0 25px rgba(6, 182, 212, 0.4)"} onMouseLeave={(e) => e.currentTarget.style.textShadow = "0 0 0 transparent"}>
-i-Yusr IT & Consulting est un cabinet de conseil et d’ingénierie technologique spécialisé dans la transformation digitale, les systèmes d’information et les solutions digitales de financement.         </p>
+        <p className="text-white max-w-5xl mx-auto text-sm sm:text-[24px] hover:text-white transition-all duration-300 cursor-pointer" style={{textShadow: "0 0 0 transparent"}} onMouseEnter={(e) => e.currentTarget.style.textShadow = "0 0 15px rgba(34, 211, 238, 0.6), 0 0 25px rgba(6, 182, 212, 0.4)"} onMouseLeave={(e) => e.currentTarget.style.textShadow = "0 0 0 transparent"}>
+i-Yusr IT & Consulting est un cabinet de conseil et d’ingénierie technologique spécialisé dans la transformation digitale, les systèmes d’information et les solutions digitales de financement. 
+        </p>
       </div>
 
       {/* Cards Grid */}
@@ -90,8 +71,6 @@ i-Yusr IT & Consulting est un cabinet de conseil et d’ingénierie technologi
             key={card.title}
             icon={card.icon}
             title={card.title}
-            description={card.description}
-            iconBg={card.iconBg}
             isVisible={isVisible}
             index={index}
           />

@@ -50,6 +50,7 @@ export function Services() {
   const headerRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [headerVisible, setHeaderVisible] = useState(false)
+  const [toggleActive, setToggleActive] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -78,6 +79,10 @@ export function Services() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setHeaderVisible(true)
+            // Activate toggle after header animation
+            setTimeout(() => {
+              setToggleActive(true)
+            }, 600)
           }
         })
       },
@@ -136,10 +141,22 @@ export function Services() {
           <br />
           <span className="flex items-center gap-3">
             Designed{" "}
-            <span className="inline-flex items-center w-16 h-8 bg-[#1a3a40] rounded-full px-1">
-              <span className="w-6 h-6 rounded-full bg-[#e85d04]" />
-            </span>{" "}
-            for Impact
+            <span className="inline-flex items-center w-16 h-8 bg-[#1a3a40] rounded-full px-1 relative overflow-hidden">
+              <span 
+                className={`w-6 h-6 rounded-full bg-[#e85d04] transition-all duration-1000 ease-in-out ${
+                  toggleActive ? "translate-x-8" : "translate-x-0"
+                }`}
+              />
+            </span>
+            <span 
+              className={`transition-all duration-1000 ease-in-out ${
+                toggleActive 
+                  ? "opacity-100 translate-x-0" 
+                  : "opacity-0 -translate-x-4"
+              }`}
+            >
+              for Impact
+            </span>
           </span>
         </h2>
 

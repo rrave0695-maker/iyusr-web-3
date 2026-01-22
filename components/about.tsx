@@ -77,11 +77,10 @@ export function About() {
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4">
-          À propos de <span className="text-[#D04A02] hover:text-[#ff7b00] transition-all duration-300 cursor-pointer" style={{textShadow: "0 0 0 transparent"}} onMouseEnter={(e) => e.currentTarget.style.textShadow = "0 0 20px rgba(255, 157, 0, 0.8), 0 0 30px rgba(208, 74, 2, 0.6)"} onMouseLeave={(e) => e.currentTarget.style.textShadow = "0 0 0 transparent"}>i-Yusr IT & Consulting</span>
+          À propos de <span className="text-[#D04A02] hover:text-[#ff7b00] transition-all duration-300 cursor-pointer" style={{textShadow: "0 0 0 transparent"}} onMouseEnter={(e) => e.currentTarget.style.textShadow = "0 0 20px rgba(255, 157, 0, 0.8), 0 0 30px rgba(208, 74, 2, 0.6)"} onMouseLeave={(e) => e.currentTarget.style.textShadow = "0 0 0 transparent"}>i-Yusr.</span>
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base hover:text-white transition-all duration-300 cursor-pointer" style={{textShadow: "0 0 0 transparent"}} onMouseEnter={(e) => e.currentTarget.style.textShadow = "0 0 15px rgba(34, 211, 238, 0.6), 0 0 25px rgba(6, 182, 212, 0.4)"} onMouseLeave={(e) => e.currentTarget.style.textShadow = "0 0 0 transparent"}>
-          Experience the perfect blend of innovation, performance, and scalability designed for modern businesses
-        </p>
+        <p className="text-white max-w-5xl mx-auto text-sm sm:text-base hover:text-white transition-all duration-300 cursor-pointer" style={{textShadow: "0 0 0 transparent"}} onMouseEnter={(e) => e.currentTarget.style.textShadow = "0 0 15px rgba(34, 211, 238, 0.6), 0 0 25px rgba(6, 182, 212, 0.4)"} onMouseLeave={(e) => e.currentTarget.style.textShadow = "0 0 0 transparent"}>
+i-Yusr IT & Consulting est un cabinet de conseil et d’ingénierie technologique spécialisé dans la transformation digitale, les systèmes d’information et les solutions digitales de financement.         </p>
       </div>
 
       {/* Cards Grid */}
